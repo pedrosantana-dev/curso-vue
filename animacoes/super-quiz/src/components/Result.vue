@@ -2,6 +2,8 @@
     <div class="result" :class="{wrong: !result}">
         <span v-if="result">Resposta Certa!</span>
         <span v-else>Resposta Errada! :(</span>
+        <hr>
+        <button @click="$emit('confirmed');">Próxima Pergunta</button>
     </div>
 </template>
 
@@ -50,6 +52,7 @@ export default {
         background-color: #FFF;
         color: #30863d;
         font-weight: 600;
+        cursor: pointer;
     } 
 
     .result.wrong button {
