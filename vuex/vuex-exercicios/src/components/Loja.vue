@@ -22,15 +22,16 @@ export default {
     },
     computed: {
         quantidade() {
-            return this.$store.state.quantidade
+            return this.$store.state.parametros.quantidade
         },
         preco() {
-            return this.$store.state.preco
+            return this.$store.state.parametros.preco
         }
     },
     methods: {
         // ...mapMutations(['adicionarProduto']),
-        ...mapActions(['adicionarProduto']),
+        ...mapActions('carrinho', ['adicionarProduto']),
+        // ...mapActions(['adicionarProduto']),
         // adicionarProduto(produto) {
         //     this.$store.dispatch('adicionarProduto', produto)
         // },
@@ -49,6 +50,9 @@ export default {
             // this.$store.commit('adicionarProduto', produto)
             // this.$store.dispatch('adicionarProduto', produto)
             this.adicionarProduto(produto)
+
+            console.log(this.$store.getters.getNome)
+            console.log(this.$store.getters.getNomeCompleto)
         }
     }
 }
